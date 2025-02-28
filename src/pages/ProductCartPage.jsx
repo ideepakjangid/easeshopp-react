@@ -9,7 +9,7 @@ const ProductCartPage = () => {
   const [products, setProducts] = useState([]);
 
   const fetchAllProducts = async () => {
-    const response = await axios.get("https://dummyjson.com/products");
+    const response = await axios.get("https://dummyjson.com/products?limit=200");
     setProducts(response.data.products);
   };
   useEffect(() => {
@@ -73,6 +73,7 @@ const ProductCartPage = () => {
         {cart.length > 0 ? (
           cart.map((pid, index) => {
             const product = products.find((product) => product.id == pid);
+            console.log("Product is",product)
             return (
               <MobileProductCard
                 key={pid}
