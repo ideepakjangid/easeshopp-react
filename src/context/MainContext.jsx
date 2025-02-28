@@ -14,7 +14,7 @@ const MainContext = (props) => {
     setCart([...cart, product_Id]);
     let final = total + product_price
     setTotal(final)
-    localStorage.setItem("total",final)
+    localStorage.setItem("total",JSON.stringify(final))
     toast.success("Item Added!!");
   };
 

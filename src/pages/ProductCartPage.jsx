@@ -13,7 +13,6 @@ const ProductCartPage = () => {
     setProducts(response.data.products);
   };
   useEffect(() => {
-    console.log("useEffect is working...");
     fetchAllProducts();
   }, [cart]);
 
@@ -130,7 +129,7 @@ const ProductCardRow = ({
       final = total - price;
     }
     setTotal(final);
-    localStorage.setItem("total", final);
+    localStorage.setItem("total", JSON.stringify(final));
   };
   const removeProduct = (id, price, quantity) => {
     const updatedCart = cart.filter((productId) => productId !== id);
@@ -207,7 +206,7 @@ const MobileProductCard = ({
       final = total - price;
     }
     setTotal(final);
-    localStorage.setItem("total", final);
+    localStorage.setItem("total", JSON.stringify(final));
   };
   const removeProduct = (id, price, quantity) => {
     const updatedCart = cart.filter((productId) => productId !== id);
